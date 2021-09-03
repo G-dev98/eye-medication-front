@@ -1,0 +1,18 @@
+.footer{
+    background-image: linear-gradient(to right, #050921, #0f4b7d);
+    /*background-color:rgb(126, 122, 122);*/
+    height: 5%;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 0%;
+}
+
+#span-letra{
+    font-size: 0.8rem;
+    color: white;
+    margin-left: 1%;
+}
+
+
+
+

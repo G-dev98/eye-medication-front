@@ -1,0 +1,109 @@
+.header{
+    height: 13%;
+    background-color: rgb(5, 9, 33);
+    justify-content: left;
+
+}
+img{
+    height: 3rem;
+    margin-left: 10%;
+}
+h1{
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 1%;
+}
+ 
+
+main{
+    margin:auto;
+    width: 100%;
+    position: relative;
+    border-bottom: 3px solid #efefef;
+    margin-top: 0;
+    height: 80px;
+}
+
+ul{
+    padding: 0px!important;
+
+}
+.menu{
+    width: 980px;
+    height: 3rem;
+    margin:  auto;
+    padding: 17px;
+}
+
+.menu ul li{
+    display: inline-block;
+    height:3rem;
+    padding-left: 55px;
+    padding-right: 55px;
+    text-align: center;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: rgb(122, 121, 121);
+}
+.menu ul li:hover{
+    border-bottom: 1px solid #00bac6;
+}
+
+.menu ul li a:hover{
+    color: #00bac6;  
+}
+@media(max-width: 450px){
+    .header{
+        height: 50px;
+        background-color: rgb(5, 9, 33);
+        justify-content: left;
+    }
+    img{
+        height: 2rem;
+        margin-left: 0%;
+    }
+    h1{
+        font-size: 1.6rem;
+        color: white;
+        margin-left: 0%;
+    }
+    main{
+        margin:auto;
+        width: 100%;
+        position: relative;
+        border-bottom: 3px solid #efefef;
+        margin-top: 0;
+        height: 35px;
+    }
+    .menu{
+        width: 100%;
+        height: 20px;
+        padding-top: 0px;
+        padding: 0px;
+    }
+    .menu ul li{
+        display: inline-block;
+        height:2rem;
+        padding-left: 20px;
+        padding-right: 0px;
+        text-align: center;
+    }
+    .menu ul li a{
+        text-decoration: none;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: rgb(122, 121, 121);
+    }
+
+    .menu ul li:hover{
+        border-bottom: 1px #00bac6;
+    }
+}
+
+
+
+
