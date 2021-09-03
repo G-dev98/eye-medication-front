@@ -15,10 +15,18 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
 import { MedicoReadComponent } from './components/views/medico/medico-read/medico-read.component';
+import { MedicoCreateComponent } from './components/views/medico/medico-create/medico-create.component';
+
+
 
 
 
@@ -31,6 +39,7 @@ import { MedicoReadComponent } from './components/views/medico/medico-read/medic
     NavComponent,
     HomeComponent,
     MedicoReadComponent,
+    MedicoCreateComponent,
   
   ],
   imports: [
@@ -42,7 +51,12 @@ import { MedicoReadComponent } from './components/views/medico/medico-read/medic
     MatCardModule,
     MatTableModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSnackBarModule,
 
   ],
   providers: [],

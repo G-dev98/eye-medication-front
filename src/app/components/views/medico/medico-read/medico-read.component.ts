@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Medicos } from '../medico.model';
 import { MedicoService } from '../medico.service';
 
@@ -11,18 +12,22 @@ export class MedicoReadComponent implements OnInit {
 
   medicos: Medicos[] = []
 
-  displayedColumns: string[] = ['id', 'nome', 'crm',"medicos", 'acoes'];
+  displayedColumns: string[] = ['id', 'nome', 'crm', 'acoes'];
 
-  constructor(private service: MedicoService) { }
+  constructor(private service: MedicoService, private router: Router) { }
 
   ngOnInit(): void {
     this.findAll();
   }
 
   findAll() { 
-    this.service.findAll().subscribe(resposta => {
+    this.service.findAll().subscribe((resposta) => {
       console.log(resposta);
      this.medicos = resposta; 
-    })
+    });
+  }
+
+  navegarParaMedicoCreate(){
+    this.router.navigate(["medicos/create"])
   }
 }
