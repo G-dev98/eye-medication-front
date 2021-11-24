@@ -1,0 +1,51 @@
+<div class="content">
+    <form>
+        <h1>Atualizando dados medico</h1>
+        <mat-form-field class="form">
+            <mat-label>Nome</mat-label>
+            <input matInput [(ngModel)]="paciente.nome" [formControl]="nome" required type="text" name="nome" placeholder="EX:José Antonio Castro" maxlength="100">
+            <mat-error *ngIf="nome.invalid" >{{ getMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form">
+            <mat-label>CPF</mat-label>
+            <input matInput [(ngModel)]="paciente.cpf" type="text" name="cpf" placeholder="EX:000.000.000-00">
+        </mat-form-field>
+        <mat-form-field class="form">
+            <mat-label>Telefone</mat-label>
+            <input matInput [(ngModel)]="paciente.telefone" type="text" name="telefone" placeholder="EX:33326598">
+        </mat-form-field>
+        <mat-form-field class="form">
+            <mat-label>Endereço</mat-label>
+            <input matInput [(ngModel)]="paciente.endereco" type="text" name="endereco" placeholder="EX:Rua Jamirão">
+        </mat-form-field>
+        <mat-form-field class="form">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput [(ngModel)]="paciente.dataNascimento" type="text" name="dataNascimento" placeholder="EX:01/03/1987">
+        </mat-form-field>
+        <mat-form-field class="form">
+            <mat-label>Naturalidade</mat-label>
+            <input matInput [(ngModel)]="paciente.naturalidade" type="text" name="naturalidade" placeholder="EX:Goiâno">
+        </mat-form-field>
+        <mat-form-field class="form">
+            <mat-label>Nome da Mãe</mat-label>
+            <input matInput [(ngModel)]="paciente.nomeMae" type="text" name="nomeMae" placeholder="EX:Jovenesci Alves">
+        </mat-form-field>
+    
+        <mat-form-field class="form">
+            <mat-label>Sexo</mat-label>
+            <input matInput [(ngModel)]="paciente.sexo" type="text" name="sexo" placeholder="EX:Masculino">
+        </mat-form-field>
+    
+        <mat-form-field class="form">
+            <mat-label>Status</mat-label>
+            <input matInput [(ngModel)]="paciente.status" type="text" name="status" placeholder="EX:internado">
+        </mat-form-field>
+    
+        
+    
+        <div class="buttons">
+            <button  (click) = "update()" [disabled]="getMessage()" class="mat-elevation-z6 content-table" id = "button"  mat-stroked-button color="primary">Atualizar</button>
+            <button (click) = "cancel()"  class="mat-elevation-z6 content-table" id="button" mat-stroked-button color="warn">Cancelar</button>
+        </div>
+    </form>
+</div>

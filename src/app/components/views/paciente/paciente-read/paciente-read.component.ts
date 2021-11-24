@@ -1,11 +1,11 @@
+
+import { ActivatedRoute, Router } from '@angular/router';
+import { PacienteService } from '../paciente.service';
+import { Paciente } from '../paciente.model';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource, MatTableDataSourcePageEvent, _MatTableDataSource } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Medicos } from '../medico.model';
-import { MedicoService } from '../medico.service';
-
 
 export interface UserData{
   id?:String;
@@ -17,32 +17,31 @@ export interface UserData{
   naturalidade:String;
   nomeMae:String;
   sexo:String;
-  crm:String;
+  status:String;
+
 }
 
-
 @Component({
-  selector: 'app-medico-read',
-  templateUrl: './medico-read.component.html',
-  styleUrls: ['./medico-read.component.css']
+  selector: 'app-paciente-read',
+  templateUrl: './paciente-read.component.html',
+  styleUrls: ['./paciente-read.component.css']
 })
 
-export class MedicoReadComponent implements OnInit{
-
+export class PacienteReadComponent implements OnInit {
+  
+  displayedColumns: string[] = ['id', 'nome', 'cpf','doenca', 'acoes'];
 
   constructor(
-    private service:MedicoService, 
-    private route: ActivatedRoute, 
-    private router: Router, ) { 
-  } 
-  
-  medicos: Medicos[] = [];
+    private service:PacienteService,
+    private rout: ActivatedRoute,
+    private router: Router,
+  ) {
 
+   }
 
-  dataSource  = new MatTableDataSource(this.medicos);
+   pacientes: Paciente[] = [];
 
-  displayedColumns: string[] = ['id', 'nome', 'crm', 'acoes'];
-
+   dataSource = new MatTableDataSource(this.pacientes);
 
   
 
@@ -53,15 +52,13 @@ export class MedicoReadComponent implements OnInit{
   findAll() { 
     this.service.findAll().subscribe((resposta) => {
       console.log(resposta);
-     this.medicos = resposta;
-     this.dataSource = new MatTableDataSource(this.medicos);
+     this.pacientes = resposta;
+     this.dataSource = new MatTableDataSource(this.pacientes);
     });
   }
 
- 
-
-  navegarParaMedicoCreate(){
-    this.router.navigate(["medicos/create"])
+  navegarParaPacienteCreate(){
+    this.router.navigate(["pacientes/create"])
   }
 
   applyFilter(event: Event) {
@@ -70,11 +67,4 @@ export class MedicoReadComponent implements OnInit{
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-
-
 }
-
-
-
-
-

@@ -14,14 +14,33 @@ export class MedicoService {
 
   constructor(private http: HttpClient, private _snack: MatSnackBar ) { }
 
+
+
   findAll():Observable<Medicos[]> {
     const url = `${this.baseUrl}/medicos`
     return this.http.get<Medicos[]>(url)
     }
 
+   findById(id: String):Observable<Medicos>{
+    const url = `${this.baseUrl}/medicos/${id}`
+    return this.http.get<Medicos>(url)
+   } 
+
+
+
   create(medico: Medicos):Observable<Medicos>{
     const url = `${this.baseUrl}/medicos`
     return this.http.post<Medicos>( url, medico);
+  }
+
+  delete(id: String):Observable<void>{
+    const url =`${this.baseUrl}/medicos/${id}`
+    return this.http.delete<void>(url)
+  }
+
+  update(medico: Medicos):Observable<void>{
+    const url = `${this.baseUrl}/medicos/${medico.id}`
+    return this.http.put<void>(url, medico)
   }
 
   mensagem(str: String):void{

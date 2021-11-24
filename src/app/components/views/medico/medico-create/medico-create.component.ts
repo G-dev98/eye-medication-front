@@ -40,4 +40,9 @@ export class MedicoCreateComponent implements OnInit {
       }
     })
   }
+
+  cancel():void{
+    this.router.navigate(['medicos']);
+  }
+
 }

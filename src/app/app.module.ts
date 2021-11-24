@@ -15,19 +15,24 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
+
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { MedicoReadComponent } from './components/views/medico/medico-read/medico-read.component';
 import { MedicoCreateComponent } from './components/views/medico/medico-create/medico-create.component';
-
-
-
+import { MedicoDeleteComponent } from './components/views/medico/medico-delete/medico-delete.component';
+import { MedicoUpdateComponent } from './components/views/medico/medico-update/medico-update.component';
+import { PacienteReadComponent } from './components/views/paciente/paciente-read/paciente-read.component';
+import { PacienteCreateComponent } from './components/views/paciente/paciente-create/paciente-create.component';
+import { PacienteUpdateComponent } from './components/views/paciente/paciente-update/paciente-update.component';
+import { DoencaPacienteComponent } from './components/views/doenca/doenca-paciente/doenca-paciente.component';
 
 
 
@@ -40,6 +45,14 @@ import { MedicoCreateComponent } from './components/views/medico/medico-create/m
     HomeComponent,
     MedicoReadComponent,
     MedicoCreateComponent,
+    MedicoDeleteComponent,
+    MedicoUpdateComponent,
+    PacienteReadComponent,
+    PacienteCreateComponent,
+    PacienteUpdateComponent,
+    DoencaPacienteComponent,
+    
+
   
   ],
   imports: [
@@ -57,6 +70,9 @@ import { MedicoCreateComponent } from './components/views/medico/medico-create/m
     MatFormFieldModule,
     MatRadioModule,
     MatSnackBarModule,
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    MatIconModule,
 
   ],
   providers: [],
