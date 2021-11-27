@@ -11,4 +11,5 @@ export interface Paciente{
   nomeMae:String;
   sexo:String;
   status:String;
+  doenca?:Doenca[];
 }

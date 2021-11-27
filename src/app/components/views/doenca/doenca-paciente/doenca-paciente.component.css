@@ -1,22 +1,38 @@
+.content{
+    width: 90%;
+    margin: 1.4rem auto;
+    
+}
+
 h3{
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color:rgb(rgb(109, 73, 73), green, blue);
+    font-weight: 400;
+    font-style: oblique;
     text-align: center;
 }
+
+/*h3{
+    font-size: 1.5rem;
+    text-align: center;
+}*/
 
 table {
     width: 100%;
   }
 
+
+
 #table-paciente{
-    width: 48%;
-    float:left;
-    border: 1px solid rgb(109, 109, 109);
+    width: 80%;
+    /*float:left;
+    border: 1px solid rgb(109, 109, 109);*/
 }
 
 #table-doenca{
-    width: 48%;
-    float: right;
-    border: 1px solid rgb(109, 109, 109);
+    width: 100%;
+    /*float: right;
+    border: 1px solid rgb(109, 109, 109);*/
 }
 
 .container{

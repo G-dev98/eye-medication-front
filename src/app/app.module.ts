@@ -23,6 +23,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { MedicoReadComponent } from './components/views/medico/medico-read/medico-read.component';
@@ -33,6 +34,7 @@ import { PacienteReadComponent } from './components/views/paciente/paciente-read
 import { PacienteCreateComponent } from './components/views/paciente/paciente-create/paciente-create.component';
 import { PacienteUpdateComponent } from './components/views/paciente/paciente-update/paciente-update.component';
 import { DoencaPacienteComponent } from './components/views/doenca/doenca-paciente/doenca-paciente.component';
+import { DoencaAddComponent } from './components/views/doenca/doenca-add/doenca-add.component';
 
 
 
@@ -51,6 +53,7 @@ import { DoencaPacienteComponent } from './components/views/doenca/doenca-pacien
     PacienteCreateComponent,
     PacienteUpdateComponent,
     DoencaPacienteComponent,
+    DoencaAddComponent,
     
 
   
@@ -73,7 +76,8 @@ import { DoencaPacienteComponent } from './components/views/doenca/doenca-pacien
     MatPaginatorModule,
     ReactiveFormsModule,
     MatIconModule,
-
+    MatDialogModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@ import { PacienteCreateComponent } from './components/views/paciente/paciente-cr
 import { PacienteReadComponent } from './components/views/paciente/paciente-read/paciente-read.component';
 import { PacienteUpdateComponent } from './components/views/paciente/paciente-update/paciente-update.component';
 import { PacienteService } from './components/views/paciente/paciente.service';
+import { DoencaAddComponent } from './components/views/doenca/doenca-add/doenca-add.component';
 
 const routes: Routes = [
   {
@@ -49,7 +50,11 @@ const routes: Routes = [
   {
     path: 'pacientes/:id_pac/doenca',
     component:DoencaPacienteComponent
-  }
+  },
+  {
+    path: 'doencas/add',
+    component:DoencaAddComponent
+  },
 ];
 
 @NgModule({

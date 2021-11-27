@@ -1,10 +1,13 @@
 import { RepositionScrollStrategy } from '@angular/cdk/overlay';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog} from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PacienteService } from '../../paciente/paciente.service';
+import { DoencaAddComponent } from '../doenca-add/doenca-add.component';
+
 
 import { Doenca } from '../doenca.model';
 
@@ -62,27 +65,28 @@ export class DoencaPacienteComponent implements AfterViewInit {
     private service:DoencaService, 
     private servicePaciente:PacienteService,
     private route: ActivatedRoute, 
-    private router: Router, ) { 
+    private router: Router,
+    public dialog: MatDialog,
+    ) { 
   } 
 
   
 
   ngAfterViewInit() {
     this.id_pac = this.route.snapshot.paramMap.get('id_pac')!
-    this.findByAllPaciente();
-    this.findAll();
-    
+    this.findByAllPaciente();  
   }
 
-  findAll() { 
-    this.service.findAll().subscribe((resposta) => {
-      console.log(resposta);
-     this.doencas = resposta;
-     this.dataSource = new MatTableDataSource<Doenca>(this.doencas);
-     this.dataSource.paginator = this.paginatorDoenca!
-     this.dataSource.sort = this.sort!
+  addDoenca(): void {
+    const dialogRef = this.dialog.open(DoencaAddComponent, {
+      width: '700px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
+
   findByAllPaciente():void{
     this.service.findByAllPaciente(this.id_pac).subscribe((resposta)=>{
       console.log(this.pacDoencas);
