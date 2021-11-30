@@ -1,10 +1,10 @@
 import { RepositionScrollStrategy } from '@angular/cdk/overlay';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog} from '@angular/material/dialog';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
 import { PacienteService } from '../../paciente/paciente.service';
 import { DoencaAddComponent } from '../doenca-add/doenca-add.component';
 
@@ -15,7 +15,7 @@ import { DoencaService } from '../doenca.service';
 
 
 export interface Doencas{
-  id?:String;
+  id?:Number;
   nome:String;
   descricao: String;
   paciente?: Paciente;
@@ -32,7 +32,7 @@ export interface Paciente{
   nomeMae:String;
   sexo:String;
   status:String;
-  doenca?: Doenca [];
+  doenca?: Doenca ;
 
 }
 
@@ -49,8 +49,9 @@ export class DoencaPacienteComponent implements AfterViewInit {
 
   doencas: Doenca [] = [];
   pacDoencas: Doenca [] = [];
+
   
-  displayedColumns: string[] = ['id', 'name', 'descricao'];
+  displayedColumns: string[] = ['id', 'name', 'descricao', 'adicionar'];
 
   dataSource = new MatTableDataSource<Doencas>(this.doencas);
   dataSourcePaciente = new MatTableDataSource<Doencas>(this.pacDoencas);
@@ -67,6 +68,7 @@ export class DoencaPacienteComponent implements AfterViewInit {
     private route: ActivatedRoute, 
     private router: Router,
     public dialog: MatDialog,
+    //@Inject(MAT_DIALOG_DATA) public data: Paciente
     ) { 
   } 
 
@@ -77,12 +79,30 @@ export class DoencaPacienteComponent implements AfterViewInit {
     this.findByAllPaciente();  
   }
 
-  addDoenca(): void {
+  addDoenca(paciente: Paciente): void {
     const dialogRef = this.dialog.open(DoencaAddComponent, {
-      width: '700px',
+      //width: '700px',
+      data: paciente
+      
+     
     });
 
     dialogRef.afterClosed().subscribe(result => {
+
+      console.log('The dialog was closed');
+    });
+  }
+
+  deletarDoenca(paciente: Paciente): void {
+    const dialogRef = this.dialog.open(DoencaAddComponent, {
+      //width: '700px',
+      data: paciente
+      
+     
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
       console.log('The dialog was closed');
     });
   }

@@ -1,7 +1,7 @@
 import { Paciente } from "../paciente/paciente.model";
 
 export interface Doenca{
-    id?:String;
+    id?: Number;
     nome:String;
     descricao: String;
   }

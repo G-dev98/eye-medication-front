@@ -10,6 +10,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class PacienteService {
 
+  preencher(paciente:Paciente ): Observable<void> {
+    const url = `${this.baseUrl}/pacientes/${paciente.id}`
+    return this.http.patch<void>(url, paciente)
+  }
+
   baseUrl: String = environment.baseUrl;
 
   constructor(private http: HttpClient, private _snack: MatSnackBar) { }

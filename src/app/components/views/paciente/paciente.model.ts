@@ -1,7 +1,7 @@
 import { Doenca } from "../doenca/doenca.model";
 
 export interface Paciente{
-  id?:String;
+  id?: String;
   nome:String;
   cpf:String;
   telefone:String;
@@ -11,5 +11,5 @@ export interface Paciente{
   nomeMae:String;
   sexo:String;
   status:String;
-  doenca?:Doenca[];
+  doenca?: Doenca[];
 }

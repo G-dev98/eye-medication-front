@@ -49,6 +49,15 @@
             </ng-container>
 
             <!-- Ações Column -->
+
+            <ng-container matColumnDef="addDoenca">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 2rem;">Adicionar Doença</th>
+              <td  id="linha"  mat-cell *matCellDef="let row" (click)="deletarDoenca(row)" style="cursor: pointer;">
+                <mat-icon>add</mat-icon>
+              </td>
+            </ng-container>
+
+            <!-- Ações Column -->
             <ng-container matColumnDef="acoes">
               <th class = "mat-header"  mat-header-cell *matHeaderCellDef> ACOES </th>
               <td mat-cell *matCellDef="let row">  

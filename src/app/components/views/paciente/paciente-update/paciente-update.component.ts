@@ -1,6 +1,8 @@
+import { RepositionScrollStrategy } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Doenca } from '../../doenca/doenca.model';
 import { Paciente } from '../paciente.model';
 import { PacienteService } from '../paciente.service';
 
@@ -14,6 +16,8 @@ export class PacienteUpdateComponent implements OnInit {
 
   constructor(private service: PacienteService,private router: Router,private route: ActivatedRoute) { }
 
+  doenca: Doenca [] =[]
+
   paciente: Paciente = {
     id:'',
     nome: '',
@@ -25,8 +29,10 @@ export class PacienteUpdateComponent implements OnInit {
     nomeMae: '',
     sexo: '',
     status: '',
-
+    doenca: this.doenca
   }
+
+  
 
   nome = new FormControl('', [Validators.minLength(3)])
 
@@ -51,6 +57,14 @@ export class PacienteUpdateComponent implements OnInit {
       console.log(this.paciente)
     })
   }
+
+  /*preencher(id: number){
+    this.service.preencher(id).subscribe((resposta)=>{
+      this.paciente = resposta
+      console.log(this.paciente)
+
+  }
+}*/
 
   update():void{
     this.service.update(this.paciente).subscribe((resposta) =>{

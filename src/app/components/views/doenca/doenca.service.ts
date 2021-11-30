@@ -23,7 +23,7 @@ export class DoencaService {
     return this.http.get<Doenca[]>(url)
     }
 
-    findById(id: String):Observable<Doenca>{
+    findById(id: string):Observable<Doenca>{
       const url = `${this.baseUrl}/doencas/${id}`
       return this.http.get<Doenca>(url)
      } 

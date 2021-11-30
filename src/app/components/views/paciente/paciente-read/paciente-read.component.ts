@@ -6,6 +6,8 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource, MatTableDataSourcePageEvent, _MatTableDataSource } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { DoencaAddComponent } from '../../doenca/doenca-add/doenca-add.component';
 
 export interface UserData{
   id?:String;
@@ -29,12 +31,14 @@ export interface UserData{
 
 export class PacienteReadComponent implements OnInit {
   
-  displayedColumns: string[] = ['id', 'nome', 'cpf','doenca', 'acoes'];
+  displayedColumns: string[] = ['id', 'nome', 'cpf','addDoenca','doenca', 'acoes'];
 
   constructor(
     private service:PacienteService,
     private rout: ActivatedRoute,
     private router: Router,
+    public dialog: MatDialog,
+    //@Inject(MAT_DIALOG_DATA) public data: Paciente
   ) {
 
    }
@@ -66,5 +70,36 @@ export class PacienteReadComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+
+  addDoenca(paciente: UserData): void {
+    const dialogRef = this.dialog.open(DoencaAddComponent, {
+      //width: '700px',
+      data: paciente
+      
+     
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      console.log('The dialog was closed');
+    });
+  }
+  //(click)="addDoenca(row)"
+
+  deletarDoenca(paciente: UserData): void {
+    const dialogRef = this.dialog.open(DoencaAddComponent, {
+      //width: '700px',
+      data: paciente
+      
+     
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      console.log('The dialog was closed');
+    });
+  }
+
 
 }

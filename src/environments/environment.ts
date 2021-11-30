@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl:'https://eye-medication-api.herokuapp.com/'
+  //baseUrl:'https://eye-medication-api.herokuapp.com/'
+  baseUrl: 'http://localhost:8080/'
 };
 
 /*
